@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -14,12 +14,10 @@ export class UserInputComponent {
   enteredExpectedReturn = '5';
   enteredDuration = '10';
 
+  @Output() calculate = new EventEmitter<{initialInvestment: number, annualInvestment: number, expectedReturn: number, duration : number}>();
+
 
   onSubmit(){
-    console.log('Form submitted!');
-    console.log(this.enteredAnnualInvestment);
-    console.log(this.enteredExpectedReturn);
-    console.log(this.enteredDuration);
-    console.log(this.enteredInitialInvestment);
+    this.calculate.emit({initialInvestment: +this.enteredInitialInvestment, annualInvestment: +this.enteredDuration, expectedReturn: +this.enteredExpectedReturn, duration: +this.enteredExpectedReturn});
   }
 }

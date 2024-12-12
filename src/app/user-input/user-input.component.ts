@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './user-input.component.css'
 })
 export class UserInputComponent {
-
+  onSubmit(){
+    console.log('Form submitted!'); 
+  }
 }
